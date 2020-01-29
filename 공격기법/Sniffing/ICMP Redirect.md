@@ -5,3 +5,12 @@
 
 
 ### 대응방법
+#### ICMP Redirect 공격에 대응하기위한 방법으로는 ICMP Redirect 옵션을 해제하는 방법이 있다.
+#### 리눅스에서는 /proc/sys/net/ipv4 경로에 있는 icmp_echo_ignore_all 파일안에 값을 1로 바꿔주면된다.
+```
+#] cd /proc/sys/net/ipv4
+#] vi icmp_echo_ignore_all
+1              // 기본 값은 보통 0으로 되어있으며 허용한다는 의미, 1은 허용안함
+값 변경 후 저장 후 나오기
+```
+#### 윈도우의 경우 방화벽 > 고급설정 > 인바운드 규칙 > 파일 및 프린터 공유(에코 요청-ICMPv4-In)항목을 클릭하여 사용안함으로 설정
